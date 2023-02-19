@@ -1,0 +1,13 @@
+- 
+   name: "Arrays"
+   hosts: web1 
+   vars:
+       students: 
+         - Akram 
+         - Ahmed
+         - Amine
+         - khaled
+   tasks:
+        - name: Ansible list variable Example
+          debug: 
+              msg: "{{ students[2] }}"

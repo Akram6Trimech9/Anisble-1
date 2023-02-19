@@ -1,0 +1,8 @@
+#search for a line in a file and replace it or add it if dosen't exist 
+- 
+  name: add a dns server to resolv.conf 
+  hosts: localhost 
+  tasks: 
+     -lineinfile: 
+         path: /etc/resolv.conf
+         line: 'nameserver 10.1.250.10'

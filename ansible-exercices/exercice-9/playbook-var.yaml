@@ -1,0 +1,9 @@
+-
+   name: "Training 1"
+   hosts: web1 
+   vars:  
+       salutation: hello Everyone! 
+   tasks: 
+     - name: Ansible Vairbale
+       debug: 
+           msg : "{{ salutation}}"

@@ -1,0 +1,16 @@
+- name:  install nginx 
+  hosts: web1 
+  gather_facts: true
+  tasks: 
+    - name: install nginx on debian 
+      apt:
+        name: nginx 
+        state: present
+      when: ansible_os_family == "Debian"  and 
+            ansible_distibution_version == "18.04" 
+    - name: install nginx on redhat 
+      yum: 
+        name: nginx 
+        state: present 
+      when: ansible_os_family == "redhat" or 
+            ansible_os_family == "SUSE"         

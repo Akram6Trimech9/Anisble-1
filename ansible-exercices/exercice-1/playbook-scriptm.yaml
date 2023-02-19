@@ -1,0 +1,6 @@
+- 
+  name: 'starting a script module'
+  hosts: web1  
+  tasks: 
+     - name: 'Run a script on remote server'
+       script: /home/asus/Bureau/ansible/ansible-exercices/script.sh

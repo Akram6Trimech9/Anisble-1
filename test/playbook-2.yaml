@@ -1,0 +1,10 @@
+-
+  name: testing Copy 
+  hosts: target1
+  tasks:     
+    - name: start the copy 
+      copy:
+         src: /home/asus/Bureau/ansible/test/test.txt
+         dest: /home/akram/ok/foo.conf
+    - name: cat what is in ok directory 
+      command: cat  /home/akram/ok/foo.conf

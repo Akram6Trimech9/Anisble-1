@@ -1,0 +1,30 @@
+- name: installing nginx 
+  hosts: local
+  tasks: 
+    - name: install nginx 
+      apt: 
+         name: nginx 
+         state: present
+      notify:
+       - start
+      # ignore_errors: Tru
+    - meta: flush_handlers 
+    - name: create file  
+      file:   
+         path: ./testfile
+         state: touch 
+    - name: okdegla
+      file: 
+         path: ./testtwo
+         state: touch
+      notify: 
+       - start  
+    - meta: flush_handlers 
+  handlers: 
+    - name: start 
+      service: 
+        name: nginx 
+        state: started
+
+#Default Handler  :  after all tasks 
+# Run once

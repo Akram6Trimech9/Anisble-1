@@ -1,0 +1,33 @@
+-
+  name: Configuring apache web server 
+  hosts: web1
+  become: yes
+  # vars:
+  #     ansible_python_interpreter: /usr/bin/python3
+  tasks: 
+    - name: install apache packages 
+      apt: 
+        name: mini-httpd
+        state: present 
+    - name: Start the apache 
+      service:
+        name: mini-httpd 
+        state: started
+    # - name: Add firewall rules
+    #   ansible.posix.firewalld:
+    #     permanent: true
+    #     port: '80/tcp'
+    #     state: status
+    # - name: reload firewall configuration
+    #   systemd: 
+    #     name: firewalld      
+    #     state: reloaded
+    - name: copy index file to mini-httpd
+      copy: 
+        src: /tmp/index.html
+        dest: /var/www/html
+    - name: restart mini-httpd
+      service: 
+        name: mini-httpd
+        state: restarted  
+           

@@ -1,0 +1,21 @@
+- name: check status of a service and email if its down
+  hosts: web2 
+  become: yes
+  become_method: sudo
+  vars_files: 
+     - ./vars.yml
+  tasks:   
+    - command: systemctl status ssh
+      register: result 
+    - mail:
+         host: smtp.gmail.com
+         port: 587
+         username: "akramtrimech97@gmail.com"
+         password: "jpjdrsmmvcxokvmf"
+         to: "akramtrimech1997@yahoo.com"
+         subject: "Test Email from Ansible"
+         body: "This is a test email sent using Ansible."
+         charset: "utf-8"
+         secure: starttls
+         sender: "akramtrimech97@gmail.com"
+      when: result.stdout.find('down') != 1 

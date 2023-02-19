@@ -1,0 +1,5 @@
+- 
+   name: deploy a mean stack 
+   hosts: node
+   roles: 
+      - mean

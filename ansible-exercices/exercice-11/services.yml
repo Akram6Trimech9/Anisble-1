@@ -1,0 +1,13 @@
+ - name: start and stop services 
+   hosts: web1
+   tasks: 
+      - name: checking akram server
+        service:  
+           name: ssh
+           state: started
+        when: ansible_host == "akram"
+      - name: checking second server
+        service:
+           name: chornyd 
+           state: stopped
+        when: anisble_host == "node1" 

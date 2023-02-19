@@ -1,0 +1,9 @@
+-
+  name: check connectivity for my web servers
+  hosts: web_servers
+  tasks:  
+     - name: ping test 
+       ping:
+     - name: 'Execute Date command '
+       command: date
+#free-form

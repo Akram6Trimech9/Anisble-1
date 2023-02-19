@@ -1,0 +1,13 @@
+-
+  name: Enable or  Disable SELINUX
+  hosts: web_servers
+  gather_facts: false
+  vars: 
+         status: disabled
+  tasks:
+        - name: change SELINUX 
+          lineinfile:
+            path: /etc/test
+            regexp: '^SELINUX='
+            line: 'SELINUX={{ status }}'
+# ansible-playbook playbook-en-di.yml -e status=enforcing -i inventory.txt 

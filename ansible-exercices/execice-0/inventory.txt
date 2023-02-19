@@ -1,0 +1,6 @@
+web1 ansible_host=192.168.1.87  ansible_connection=ssh ansible_user=akram ansible_ssh_pass=akram
+web2 ansible_host=192.168.1.218  ansible_connection=ssh ansible_user=akram ansible_ssh_pass=akram
+
+[web_servers]
+web1
+web2
